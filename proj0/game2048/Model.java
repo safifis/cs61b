@@ -109,8 +109,8 @@ public class Model extends Observable {
     public boolean tilt(Side side) {
         boolean changed;
         changed = false;
-
         board.setViewingPerspective(side);
+
         /** process each column separately */
         for (int col = 0; col < board.size(); col++) {
             if (processColumn(col)) {
@@ -147,7 +147,7 @@ public class Model extends Observable {
             }
         }
 
-        /** Merge the applicable tiles */
+        /** 2. Merge the applicable tiles */
         for (int row = 3; row >= 0; row--) {
             Tile tOrigin = board.tile(col, row);
             int nextLine = row - 1;
